@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SentinelGuard - Kill Switch</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">🛡️ SentinelGuard</div>
+    </div>
+
+    <!-- VIEW 1: Default Status -->
+    <div id="view-status" class="view active">
+        <div class="status-card">
+            <div class="status-label">CURRENT TAB</div>
+            <div id="current-url" class="truncate-text">Scanning...</div>
+            <div id="risk-badge" class="badge badge-neutral">Awaiting Verdict</div>
+        </div>
+
+        <div class="action-section">
+            <h3>Emergency Actions</h3>
+            <p>If you suspect you just entered credentials on a fake site or downloaded malware, activate the Kill
+                Switch.</p>
+
+            <button id="btn-kill-switch" class="btn btn-danger">
+                🚨 ACTIVATE KILL SWITCH
+            </button>
+        </div>
+
+        <div class="recent-incidents">
+            <h4>Recent Incidents</h4>
+            <ul id="incident-list" class="incident-list">
+                <!-- Injected via JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- VIEW 2: Triage Checklist -->
+    <div id="view-triage" class="view">
+        <div class="status-card danger-card">
+            <h2>INCIDENT LOGGED</h2>
+            <p>A forensic snapshot has been saved to your local storage.</p>
+        </div>
+
+        <div class="checklist-section">
+            <h3>Immediate Triage Checklist</h3>
+            <ul class="checklist">
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1"><strong>Change Passwords:</strong> Log into the real service via a new tab and
+                        change your password immediately.</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2"><strong>Freeze Cards:</strong> Open your banking app and temporarily lock any
+                        associated debit/credit cards.</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3"><strong>Revoke Sessions:</strong> Force-logout all active sessions from your
+                        account security settings.</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task4">
+                    <label for="task4"><strong>Run Anti-Virus:</strong> If you downloaded a file, run a full system scan
+                        before opening it.</label>
+                </li>
+            </ul>
+
+            <button id="btn-back-home" class="btn btn-secondary" style="margin-top: 20px;">
+                Return to Dashboard
+            </button>
+        </div>
+    </div>
+
+    <!-- Active Tab Telemetry -->
+    <section class="telemetry-card">
+        <div class="card-label">CURRENT TAB RISK</div>
+        <div class="telemetry-row">
+            <span id="current-url" class="truncate-url">Detecting active tab...</span>
+        </div>
+        <div class="risk-meter-container">
+            <div class="risk-info">
+                <span>Threat Assessment</span>
+                <strong id="risk-score-display">-- / 100</strong>
+            </div>
+            <div class="meter-bar">
+                <div id="meter-fill" class="meter-fill" style="width: 0%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Kill Switch Section -->
+    <section class="emergency-section">
+        <button id="kill-switch-btn" class="btn-emergency">
+            I'VE BEEN COMPROMISED
+        </button>
+    </section>
+
+    <!-- Post-Breach Triage Modal / Panel -->
+    <div id="triage-panel" class="triage-panel hidden">
+        <div class="triage-header">
+            <h3>🚨 Incident Response Kit</h3>
+            <button id="close-triage-btn" class="btn-close">&times;</button>
+        </div>
+
+        <p class="triage-subtitle">Select what was compromised to generate targeted remediation:</p>
+
+        <div class="triage-options">
+            <label class="radio-card">
+                <input type="radio" name="breach_type" value="credentials" checked />
+                <span>Entered Login / Password</span>
+            </label>
+            <label class="radio-card">
+                <input type="radio" name="breach_type" value="financial" />
+                <span>Entered Credit Card / Banking</span>
+            </label>
+            <label class="radio-card">
+                <input type="radio" name="breach_type" value="download" />
+                <span>Downloaded Suspicious File</span>
+            </label>
+        </div>
+
+        <div id="playbook-steps" class="playbook-steps">
+            <!-- Dynamically populated checklist based on breach type -->
+        </div>
+
+        <div class="action-buttons">
+            <button id="download-forensics-btn" class="btn-secondary">
+                Download Evidence (.JSON)
+            </button>
+            <button id="close-tab-btn" class="btn-danger">
+                Close Compromised Tab
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

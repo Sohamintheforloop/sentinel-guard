@@ -1,0 +1,627 @@
+body {
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.header {
+    background-color: #1e293b;
+    padding: 12px 16px;
+    border-bottom: 1px solid #334155;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.view {
+    display: none;
+    padding: 16px;
+}
+
+.view.active {
+    display: block;
+}
+
+/* Status Card */
+.status-card {
+    background-color: #1e293b;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #334155;
+}
+
+.danger-card {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+    text-align: center;
+}
+
+.danger-card h2 {
+    color: #ef4444;
+    margin: 0 0 4px 0;
+    font-size: 16px;
+}
+
+.danger-card p {
+    margin: 0;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.status-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.truncate-text {
+    font-family: monospace;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 12px;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+}
+
+.badge-neutral {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+.badge-success {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* Typography & Layout */
+h3,
+h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #475569;
+    color: #cbd5e1;
+}
+
+.btn-secondary:hover {
+    background-color: #334155;
+}
+
+/* Lists & Checklists */
+.incident-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.incident-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empty-state {
+    color: #64748b;
+    font-style: italic;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    background: #1e293b;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.checklist input {
+    margin-top: 3px;
+    margin-right: 8px;
+}
+
+.checklist label {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #cbd5e1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    width: 360px;
+    min-height: 480px;
+}
+
+.popup-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 10px;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-group h2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.badge-status {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: #1e293b;
+    color: #38bdf8;
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+/* Telemetry Card */
+.telemetry-card {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #334155;
+}
+
+.card-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.truncate-url {
+    font-size: 12px;
+    color: #cbd5e1;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.risk-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.meter-bar {
+    width: 100%;
+    height: 8px;
+    background: #334155;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Emergency Kill Switch */
+.btn-emergency {
+    width: 100%;
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+}
+
+.btn-emergency:hover {
+    background: #b91c1c;
+}
+
+.btn-emergency:active {
+    transform: scale(0.98);
+}
+
+/* Triage Panel */
+.triage-panel {
+    background: #1e293b;
+    border: 1px solid #e11d48;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.triage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.triage-header h3 {
+    font-size: 14px;
+    color: #f43f5e;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.triage-subtitle {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.triage-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.radio-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0f172a;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.playbook-steps {
+    background: #0f172a;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.playbook-steps ol {
+    padding-left: 16px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.btn-secondary,
+.btn-danger {
+    flex: 1;
+    padding: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #334155;
+    color: #f8fafc;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+body {
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.header {
+    background-color: #1e293b;
+    padding: 12px 16px;
+    border-bottom: 1px solid #334155;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.view {
+    display: none;
+    padding: 16px;
+}
+
+.view.active {
+    display: block;
+}
+
+/* Status Card */
+.status-card {
+    background-color: #1e293b;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #334155;
+}
+
+.danger-card {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+    text-align: center;
+}
+
+.danger-card h2 {
+    color: #ef4444;
+    margin: 0 0 4px 0;
+    font-size: 16px;
+}
+
+.danger-card p {
+    margin: 0;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.status-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.truncate-text {
+    font-family: monospace;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 12px;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+}
+
+.badge-neutral {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+.badge-success {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* Typography & Layout */
+h3,
+h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #475569;
+    color: #cbd5e1;
+}
+
+.btn-secondary:hover {
+    background-color: #334155;
+}
+
+/* Lists & Checklists */
+.incident-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.incident-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empty-state {
+    color: #64748b;
+    font-style: italic;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    background: #1e293b;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.checklist input {
+    margin-top: 3px;
+    margin-right: 8px;
+}
+
+.checklist label {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #cbd5e1;
+}

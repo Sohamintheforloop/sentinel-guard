@@ -2,10 +2,6 @@ name: Deploy SentinelGuard Worker
 
 on:
   push:
-    braname: Deploy SentinelGuard Worker
-
-on:
-  push:
     branches:
       - main
   workflow_dispatch:
@@ -20,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22' # This fixes the Node 20 deprecation warning
+          node-version: '22'
 
       - name: Install Dependencies
         working-directory: ./sentinelguard-worker

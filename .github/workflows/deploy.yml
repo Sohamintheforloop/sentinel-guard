@@ -2,9 +2,13 @@ name: Deploy SentinelGuard Worker
 
 on:
   push:
+    braname: Deploy SentinelGuard Worker
+
+on:
+  push:
     branches:
       - main
-  workflow_dispatch: # Allows manual triggering with a button click
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -16,14 +20,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22' # This fixes the Node 20 deprecation warning
 
       - name: Install Dependencies
         working-directory: ./sentinelguard-worker
         run: npm install
 
-      - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: 'sentinelguard-worker'
+      - name: Deploy to Cloudflare
+        working-directory: ./sentinelguard-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler deploy

@@ -26,4 +26,6 @@ jobs:
         working-directory: ./sentinelguard-worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: npx wrangler deploy
+        run: 
+          npm install -g wrangler
+          npx wrangler deploy

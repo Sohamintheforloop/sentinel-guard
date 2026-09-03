@@ -1,4 +1,4 @@
-const API_ENDPOINT = "http://127.0.0.1:8000/api/v1/inspect";
+const API_ENDPOINT = "https://sentinelguard-worker.surefireprotect.workers.dev/";
 
 let currentActiveTab = null;
 let currentTabRisk = { score: 0, decision: "ALLOW" };

@@ -1,4 +1,4 @@
-const API_ENDPOINT = "http://127.0.0.1:8000/api/v1/inspect";
+const API_ENDPOINT = "https://sentinelguard-worker.surefireprotect.workers.dev/api/v1/inspect";
 
 chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
     // Only inspect top-level frame navigations (not iframes/ads)
@@ -7,7 +7,10 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
     const url = details.url;
 
     // Skip browser internal pages
-    if (url.startsWith("chrome://") || url.startsWith("edge://") || url.startsWith("about:")) {
+    if (
+        !url.startsWith("http://") &&
+        !url.startsWith("https://")
+    ) {
         return;
     }
 
@@ -24,15 +27,12 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
 
         // If high risk, instruct the content script to block the page
         if (data.decision === "BLOCK") {
-            chrome.tabs.sendMessage(details.tabId, {
-                action: "BLOCK_PAGE",
-                url: data.url,
-                riskScore: data.risk_score
-            }).catch(() => {
-                // Tab might not be ready yet; content script will handle on load
-            });
+            const blockPage = chrome.runtime.getURL(
+                `blocked.html?threat=${encodeURIComponent(url)}&score=${encodeURIComponent(data.risk_score || 100)}`
+            );
+            chrome.tabs.update(details.tabId, { url: blockPage });
         }
     } catch (err) {
-        console.error("SentinelGuard Backend unreachable:", err);
+        console.error("SentinelGuard Backend inspection error:", err);
     }
 });

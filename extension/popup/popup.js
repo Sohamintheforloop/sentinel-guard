@@ -1,4 +1,4 @@
-const API_ENDPOINT = "https://sentinelguard-worker.surefireprotect.workers.dev/";
+const API_ENDPOINT = "https://sentinelguard-worker.surefireprotect.workers.dev/api/v1/inspect";
 
 let currentActiveTab = null;
 let currentTabRisk = { score: 0, decision: "ALLOW" };

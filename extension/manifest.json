@@ -7,7 +7,6 @@
         "webNavigation",
         "storage",
         "tabs",
-        "storage",
         "activeTab",
         "scripting"
     ],
